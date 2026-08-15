@@ -1,0 +1,161 @@
+[
+  {
+    "slug": "metformin",
+    "name": "Metformin 500 mg",
+    "generic_name": "Metformin",
+    "brand_name": "Metformin",
+    "aliases": ["metformin", "metformin 500", "metformin 500 mg"],
+    "category": "Antidiabetic",
+    "uses": [
+      "help control blood sugar",
+      "management of type 2 diabetes"
+    ],
+    "precautions": [
+      "Follow the prescription provided by your doctor.",
+      "Tell your healthcare professional about other medicines you take.",
+      "Discuss kidney problems with your healthcare professional."
+    ],
+    "common_side_effects": [
+      "nausea",
+      "stomach discomfort",
+      "diarrhea"
+    ],
+    "condition_rules": [
+      {
+        "condition": "diabetes",
+        "level": "information",
+        "message": "This medicine is commonly used in diabetes management."
+      },
+      {
+        "condition": "renal",
+        "level": "caution",
+        "message": "Kidney health can be relevant when this medicine is used; discuss kidney conditions with a healthcare professional."
+      }
+    ]
+  },
+  {
+    "slug": "amlodipine",
+    "name": "Amlodipine 5 mg",
+    "generic_name": "Amlodipine",
+    "brand_name": "Amlodipine",
+    "aliases": ["amlodipine", "amlodipine 5", "amlodipine 5 mg"],
+    "category": "Calcium channel blocker",
+    "uses": [
+      "help manage high blood pressure",
+      "help manage certain types of chest pain"
+    ],
+    "precautions": [
+      "Follow the prescription provided by your doctor.",
+      "Tell your healthcare professional about other medicines you take.",
+      "Discuss persistent swelling or dizziness with a healthcare professional."
+    ],
+    "common_side_effects": [
+      "headache",
+      "dizziness",
+      "ankle swelling"
+    ],
+    "condition_rules": [
+      {
+        "condition": "hypertension",
+        "level": "information",
+        "message": "This medicine is commonly used to manage high blood pressure."
+      }
+    ]
+  },
+  {
+    "slug": "paracetamol",
+    "name": "Paracetamol 500 mg",
+    "generic_name": "Paracetamol",
+    "brand_name": "Paracetamol",
+    "aliases": ["paracetamol", "acetaminophen", "paracetamol 500"],
+    "category": "Analgesic / antipyretic",
+    "uses": [
+      "relieve mild to moderate pain",
+      "reduce fever"
+    ],
+    "precautions": [
+      "Follow the product label or physician's instructions.",
+      "Avoid taking multiple products containing the same active ingredient unless advised by a healthcare professional.",
+      "Discuss liver disease or heavy alcohol use with a healthcare professional."
+    ],
+    "common_side_effects": [
+      "nausea",
+      "stomach discomfort"
+    ],
+    "condition_rules": [
+      {
+        "condition": "liver",
+        "level": "caution",
+        "message": "Liver health is relevant when using this medicine; discuss liver disease with a healthcare professional."
+      }
+    ]
+  },
+  {
+    "slug": "levothyroxine",
+    "name": "Levothyroxine 50 mcg",
+    "generic_name": "Levothyroxine",
+    "brand_name": "Levothyroxine",
+    "aliases": ["levothyroxine", "thyroxine", "levothyroxine 50"],
+    "category": "Thyroid hormone",
+    "uses": [
+      "replace thyroid hormone",
+      "manage hypothyroidism"
+    ],
+    "precautions": [
+      "Take the medicine exactly as prescribed.",
+      "Do not change the dose without medical advice.",
+      "Tell your healthcare professional about other medicines and supplements."
+    ],
+    "common_side_effects": [
+      "changes in heart rate",
+      "nervousness",
+      "sweating"
+    ],
+    "condition_rules": [
+      {
+        "condition": "thyroid",
+        "level": "information",
+        "message": "This medicine is used as thyroid hormone replacement in appropriate patients."
+      },
+      {
+        "condition": "cardiovascular",
+        "level": "caution",
+        "message": "Heart conditions can be relevant when thyroid hormone treatment is used; discuss your history with a healthcare professional."
+      }
+    ]
+  },
+  {
+    "slug": "atorvastatin",
+    "name": "Atorvastatin 10 mg",
+    "generic_name": "Atorvastatin",
+    "brand_name": "Atorvastatin",
+    "aliases": ["atorvastatin", "atorvastatin 10"],
+    "category": "Statin",
+    "uses": [
+      "help lower cholesterol",
+      "reduce cardiovascular risk in appropriate patients"
+    ],
+    "precautions": [
+      "Follow your prescribed schedule.",
+      "Report unexplained muscle pain or weakness to a healthcare professional.",
+      "Discuss liver conditions and other medicines with your healthcare professional."
+    ],
+    "common_side_effects": [
+      "muscle aches",
+      "headache",
+      "digestive discomfort"
+    ],
+    "condition_rules": [
+      {
+        "condition": "cardiovascular",
+        "level": "information",
+        "message": "This medicine may be used as part of cardiovascular risk management in appropriate patients."
+      },
+      {
+        "condition": "liver",
+        "level": "caution",
+        "message": "Liver health is relevant; discuss liver disease with a healthcare professional."
+      }
+    ]
+  }
+]

@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MedGuide AI — Know what you're taking</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,450;9..144,600&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&family=Noto+Sans+Devanagari:wght@400;600&family=Noto+Sans+Telugu:wght@400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/tokens.css">
+<link rel="stylesheet" href="css/base.css">
+<link rel="stylesheet" href="css/components.css">
+<style>
+  .landing-header .container { padding-top: var(--space-4); padding-bottom: var(--space-4); display:flex; align-items:center; justify-content:space-between; }
+  .hero { padding: var(--space-8) 0 var(--space-7); }
+  .hero-grid { display: grid; grid-template-columns: 1.1fr 0.9fr; gap: var(--space-7); align-items: start; }
+  @media (max-width: 860px) { .hero-grid { grid-template-columns: 1fr; } }
+  .hero-copy .eyebrow { margin-bottom: var(--space-3); display:block; }
+  .hero-copy h1 { margin-bottom: var(--space-4); }
+  .hero-copy p.lede { font-size: 1.08rem; max-width: 46ch; margin-bottom: var(--space-6); }
+  .lang-strip { display:flex; gap: var(--space-3); flex-wrap: wrap; }
+  .lang-pill { font-family: var(--font-mono); font-size: 0.72rem; border: 1px solid var(--paper-line); border-radius: var(--radius-pill); padding: 0.3rem 0.8rem; color: var(--ink-soft); }
+
+  .auth-card { position: sticky; top: 110px; }
+  .auth-tabs { margin-bottom: var(--space-5); }
+  .auth-form { display: none; }
+  .auth-form.active { display: block; }
+  .auth-error { color: var(--coral); font-size: 0.85rem; margin-top: -6px; margin-bottom: var(--space-3); min-height: 1.1em; }
+
+  .flow { padding: var(--space-7) 0; }
+  .flow-steps { display: grid; grid-template-columns: repeat(4, 1fr); gap: var(--space-5); margin-top: var(--space-6); }
+  @media (max-width: 860px) { .flow-steps { grid-template-columns: repeat(2, 1fr); } }
+  @media (max-width: 520px) { .flow-steps { grid-template-columns: 1fr; } }
+  .flow-step p { font-size: 0.86rem; }
+
+  .site-footer { padding: var(--space-6) 0 var(--space-8); }
+  .site-footer .card { background: var(--sage); border: none; }
+  .site-footer p { color: var(--teal-deep); font-size: 0.84rem; }
+</style>
+</head>
+<body>
+
+<header class="site-header landing-header">
+  <div class="container">
+    <a class="logo" href="index.html">
+      <svg viewBox="0 0 26 26" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <rect x="2" y="10" width="22" height="8" rx="4" transform="rotate(-30 13 13)" fill="var(--teal-tint)" stroke="var(--teal)" stroke-width="1.6"/>
+        <path d="M13 13 L18 8" stroke="var(--teal)" stroke-width="1.6" stroke-linecap="round"/>
+      </svg>
+      MedGuide AI
+    </a>
+    <div class="row">
+      <span class="muted">Hackathon prototype</span>
+    </div>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="container hero-grid">
+    <div class="hero-copy">
+      <span class="eyebrow">Medicine information, made legible</span>
+      <h1>Know what you're taking, in the language you think in.</h1>
+      <p class="lede">Scan a medicine strip or a doctor's prescription. MedGuide AI reads it, checks it against your own health profile, and explains it back to you in plain words — spoken aloud, in Telugu, Hindi, or English.</p>
+      <div class="lang-strip">
+        <span class="lang-pill">EN — English</span>
+        <span class="lang-pill" lang="te">తె — Telugu</span>
+        <span class="lang-pill" lang="hi">हि — Hindi</span>
+      </div>
+    </div>
+
+    <div class="auth-card card">
+      <div class="tabs auth-tabs">
+        <button type="button" id="tab-login" class="active">Log in</button>
+        <button type="button" id="tab-register">Create account</button>
+      </div>
+
+      <form id="login-form" class="auth-form active">
+        <div class="field">
+          <label for="login-email">Email</label>
+          <input id="login-email" type="email" required autocomplete="email" value="rahul@example.com">
+        </div>
+        <div class="field">
+          <label for="login-password">Password</label>
+          <input id="login-password" type="password" required autocomplete="current-password" value="Demo@123">
+        </div>
+        <p class="auth-error" id="login-error"></p>
+        <button type="submit" class="btn btn-primary btn-block">Log in</button>
+        <p class="muted" style="margin-top:12px;">Demo credentials are pre-filled — register first if this is a fresh backend.</p>
+      </form>
+
+      <form id="register-form" class="auth-form">
+        <div class="field">
+          <label for="reg-name">Name</label>
+          <input id="reg-name" type="text" required autocomplete="name" placeholder="Rahul">
+        </div>
+        <div class="field">
+          <label for="reg-email">Email</label>
+          <input id="reg-email" type="email" required autocomplete="email" placeholder="rahul@example.com">
+        </div>
+        <div class="field">
+          <label for="reg-password">Password</label>
+          <input id="reg-password" type="password" required autocomplete="new-password" placeholder="Demo@123">
+        </div>
+        <p class="auth-error" id="register-error"></p>
+        <button type="submit" class="btn btn-accent btn-block">Create account</button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<div class="container"><div class="perforation"></div></div>
+
+<section class="flow">
+  <div class="container">
+    <span class="eyebrow">How a scan becomes an explanation</span>
+    <h2 style="margin-top:10px;">The pipeline behind every result</h2>
+    <div class="flow-steps">
+      <div class="flow-step">
+        <div class="section-label"><span class="num">01</span><h3>Profile</h3></div>
+        <p>Age, conditions, and preferred language, stored once.</p>
+      </div>
+      <div class="flow-step">
+        <div class="section-label"><span class="num">02</span><h3>Scan &amp; recognize</h3></div>
+        <p>OCR reads the strip or prescription and matches it to a medicine.</p>
+      </div>
+      <div class="flow-step">
+        <div class="section-label"><span class="num">03</span><h3>Personalize</h3></div>
+        <p>Uses, precautions, and risk are checked against your conditions.</p>
+      </div>
+      <div class="flow-step">
+        <div class="section-label"><span class="num">04</span><h3>Translate &amp; speak</h3></div>
+        <p>The explanation is rewritten in your language and read aloud.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="card">
+      <p><strong>Safety boundary —</strong> MedGuide AI is a hackathon prototype for medication information and accessibility. It does not diagnose or prescribe. Always follow your physician's instructions.</p>
+    </div>
+  </div>
+</footer>
+
+<script src="js/api.js"></script>
+<script src="js/auth.js"></script>
+</body>
+</html>

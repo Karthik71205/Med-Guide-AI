@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>History — MedGuide AI</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,450;9..144,600&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/tokens.css">
+<link rel="stylesheet" href="css/base.css">
+<link rel="stylesheet" href="css/components.css">
+<style>
+  .page { padding: var(--space-6) 0 var(--space-8); max-width: 720px; margin: 0 auto; }
+  .timeline-entry { border-bottom: 1px solid var(--paper-line); }
+  .timeline-entry:last-child { border-bottom: none; }
+  .timeline-entry .tag { font-family: var(--font-mono); font-size: 0.68rem; text-transform: uppercase; color: var(--teal-deep); background: var(--teal-tint); padding: 2px 8px; border-radius: var(--radius-pill); }
+</style>
+</head>
+<body>
+
+<header class="site-header" id="app-header"></header>
+
+<main class="page container">
+  <span class="eyebrow">Your record</span>
+  <h1 style="font-size: clamp(1.8rem, 3vw, 2.4rem); margin: 8px 0 var(--space-6);">History</h1>
+
+  <div class="card" id="history-card">
+    <p class="muted">Loading history…</p>
+  </div>
+</main>
+
+<script src="js/api.js"></script>
+<script src="js/nav.js"></script>
+<script src="js/history.js"></script>
+</body>
+</html>

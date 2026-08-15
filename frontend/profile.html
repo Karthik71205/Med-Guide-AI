@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Profile — MedGuide AI</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,450;9..144,600&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/tokens.css">
+<link rel="stylesheet" href="css/base.css">
+<link rel="stylesheet" href="css/components.css">
+<style>
+  .page { padding: var(--space-6) 0 var(--space-8); max-width: 640px; margin: 0 auto; }
+  #condition-input { border: 1.5px dashed var(--paper-line); }
+</style>
+</head>
+<body>
+
+<header class="site-header" id="app-header"></header>
+
+<main class="page container">
+  <span class="eyebrow">Your details</span>
+  <h1 style="font-size: clamp(1.8rem, 3vw, 2.4rem); margin: 8px 0 var(--space-6);">Health profile</h1>
+
+  <form class="card" id="profile-form">
+    <div class="field-row">
+      <div class="field">
+        <label for="age">Age</label>
+        <input id="age" type="number" min="0" max="120" required>
+      </div>
+      <div class="field">
+        <label for="sex">Sex</label>
+        <select id="sex">
+          <option value="male">Male</option>
+          <option value="female">Female</option>
+          <option value="other">Other</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="field-row">
+      <div class="field">
+        <label for="weight">Weight (kg)</label>
+        <input id="weight" type="number" min="0" max="400" step="0.1" required>
+      </div>
+      <div class="field">
+        <label for="preferred_language">Preferred language</label>
+        <select id="preferred_language">
+          <option value="en">English</option>
+          <option value="te">Telugu</option>
+          <option value="hi">Hindi</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="field">
+      <label for="condition-input">Conditions</label>
+      <input id="condition-input" type="text" placeholder="Type a condition and press Enter — e.g. diabetes">
+      <div class="chip-input" id="conditions-chips"></div>
+    </div>
+
+    <button type="submit" class="btn btn-primary btn-block" style="margin-top: var(--space-4);">Save profile</button>
+  </form>
+</main>
+
+<script src="js/api.js"></script>
+<script src="js/nav.js"></script>
+<script src="js/profile.js"></script>
+</body>
+</html>

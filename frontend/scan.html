@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Scan — MedGuide AI</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,450;9..144,600&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/tokens.css">
+<link rel="stylesheet" href="css/base.css">
+<link rel="stylesheet" href="css/components.css">
+<style>
+  .page { padding: var(--space-6) 0 var(--space-8); max-width: 760px; margin: 0 auto; }
+  .scan-panel { display: none; }
+  .scan-panel.active { display: block; }
+  .or-divider { display:flex; align-items:center; gap: var(--space-3); margin: var(--space-5) 0; color: var(--ink-faint); font-size: 0.8rem; }
+  .or-divider::before, .or-divider::after { content:''; flex:1; height:1px; background: var(--paper-line); }
+  .manual-row { display:flex; gap: var(--space-3); }
+  .manual-row input { flex:1; }
+  .result-box { margin-top: var(--space-6); display:none; }
+  .result-box.show { display:block; }
+  input[type=file] { display:none; }
+  .frame-text { font-weight: 600; }
+  .frame-hint { font-size: 0.82rem; color: var(--ink-soft); }
+</style>
+</head>
+<body>
+
+<header class="site-header" id="app-header"></header>
+
+<main class="page container">
+  <span class="eyebrow">Recognize</span>
+  <h1 style="font-size: clamp(1.8rem, 3vw, 2.4rem); margin: 8px 0 var(--space-5);">What are you looking at?</h1>
+
+  <div class="tabs" id="scan-tabs">
+    <button type="button" data-panel="medicine" class="active">Medicine</button>
+    <button type="button" data-panel="report">Diagnostic report</button>
+  </div>
+
+  <!-- Medicine scan panel -->
+  <section class="scan-panel active" id="panel-medicine">
+    <div class="card" style="margin-top: var(--space-5);">
+      <label class="capsule-frame" id="med-dropzone">
+        <div class="icon-wrap">
+          <svg width="30" height="30" viewBox="0 0 24 24" fill="none"><path d="M4 16l4-4a3 3 0 0 1 4 0l1 1M14 12l1.5-1.5a3 3 0 0 1 4 0L21 12" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/><rect x="3" y="4" width="18" height="16" rx="3" stroke="currentColor" stroke-width="1.6"/><circle cx="8" cy="9" r="1.6" fill="currentColor"/></svg>
+        </div>
+        <span class="frame-text">Drop a strip or prescription photo here</span>
+        <span class="frame-hint">or tap to choose an image</span>
+        <input type="file" id="med-file-input" accept="image/*" capture="environment">
+      </label>
+
+      <div class="or-divider">or type the name instead</div>
+
+      <div class="manual-row">
+        <input type="text" id="manual-text" placeholder="e.g. METFORMIN 500 MG">
+        <button class="btn btn-primary" id="recognize-btn">Recognize</button>
+      </div>
+    </div>
+
+    <div class="card result-box" id="med-result">
+      <div class="row-between">
+        <div>
+          <span class="eyebrow" id="med-result-ocr-label">OCR text</span>
+          <p id="med-result-ocr" class="muted" style="margin-top:4px;"></p>
+        </div>
+      </div>
+      <div class="perforation"></div>
+      <div class="row-between">
+        <div>
+          <h3 id="med-result-name">—</h3>
+          <p class="muted" id="med-result-sub"></p>
+        </div>
+        <button class="btn btn-accent" id="analyze-btn">Analyze for me</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Report scan panel -->
+  <section class="scan-panel" id="panel-report">
+    <div class="card" style="margin-top: var(--space-5);">
+      <label class="capsule-frame" id="report-dropzone">
+        <div class="icon-wrap">
+          <svg width="30" height="30" viewBox="0 0 24 24" fill="none"><path d="M6 3h9l4 4v14a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1Z" stroke="currentColor" stroke-width="1.6"/><path d="M9 12h6M9 16h6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+        </div>
+        <span class="frame-text">Drop a diagnostic report photo here</span>
+        <span class="frame-hint">or tap to choose an image</span>
+        <input type="file" id="report-file-input" accept="image/*" capture="environment">
+      </label>
+    </div>
+
+    <div class="card result-box" id="report-result">
+      <span class="eyebrow">Condition hints</span>
+      <div id="report-hints" style="margin-top: var(--space-3);"></div>
+      <p class="muted" style="margin-top: var(--space-3);">These are conservative keyword hints, not a diagnosis. Review before adding to your profile.</p>
+      <a href="profile.html" class="btn btn-ghost btn-sm" style="margin-top: var(--space-3);">Review in profile</a>
+    </div>
+  </section>
+</main>
+
+<script src="js/api.js"></script>
+<script src="js/nav.js"></script>
+<script src="js/scan.js"></script>
+</body>
+</html>
