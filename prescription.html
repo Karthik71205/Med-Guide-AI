@@ -1,0 +1,43 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect x='2' y='2' width='28' height='28' rx='9' fill='%230B3D3A'/%3E%3Cpath d='M11 21l5-10 5 10M13 17h6' stroke='%23FFFFFF' stroke-width='1.6' stroke-linecap='round'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+<title>Prescription · Mediguide-AI</title></head><body class="app-page"><header class="topbar">
+  <a class="brand" href="dashboard.html">
+    <span class="brand-mark" aria-hidden="true">
+      <svg viewBox="0 0 32 32" fill="none"><rect x="2" y="2" width="28" height="28" rx="9" fill="currentColor"/><path d="M11 21l5-10 5 10M13 17h6" stroke="white" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </span>
+    <span>Mediguide-AI<span class="brand-accent">-AI</span></span>
+  </a>
+  <button class="menu-btn" aria-label="Open menu" aria-expanded="false">☰</button>
+  <nav class="nav">
+    <a href="dashboard.html" data-nav="dashboard.html"><span>⌂</span> Dashboard</a>
+    <a href="scan.html" data-nav="scan.html"><span>◉</span> Scan</a>
+    <a href="prescription.html" data-nav="prescription.html"><span>▤</span> Prescription</a>
+    <a href="schemes.html" data-nav="schemes.html"><span>✚</span> Care Schemes</a>
+    <a href="history.html" data-nav="history.html"><span>◷</span> History</a>
+    <a href="subscription.html" data-nav="subscription.html"><span>★</span> Premium</a>
+    <a href="settings.html" data-nav="settings.html"><span>⚙</span> Settings</a>
+    <a href="#" onclick="logout();return false;"><span>↪</span> Logout</a>
+  </nav>
+</header>
+
+<main class="container narrow">
+  <div class="page-heading reveal"><span class="eyebrow"><i></i> Prescription support</span><h1>Make a prescription easier to read</h1><p>Upload a prescription image, review what OCR extracts, then continue to the safety analysis.</p></div>
+  <section class="workspace-card reveal">
+    <div class="upload-zone"><div class="upload-icon">▤</div><h2>Upload prescription</h2><p>Use a clear image of the complete prescription.</p><label class="btn btn-primary" for="prescriptionFile">Choose prescription</label><input id="prescriptionFile" type="file" accept="image/jpeg,image/png,image/webp" capture="environment" hidden><small>JPG, PNG or WEBP · Your doctor’s handwriting may affect OCR accuracy</small><img id="prescriptionPreview" class="preview" alt="Prescription preview"></div>
+    <div class="actions center-actions"><button class="btn btn-primary btn-lg" onclick="analyzePrescription()">Extract prescription <span>→</span></button></div>
+    <div id="processing" class="processing hidden"><div class="spinner"></div><div><strong>Preparing your prescription</strong><p>Reading image and extracting medicine fields…</p></div></div>
+    <div class="process-steps"><span class="done">01 Upload</span><span>02 Read</span><span>03 Verify</span><span>04 Safety review</span></div>
+  </section>
+  <div class="care-tip warning-tip reveal"><span>!</span><div><strong>Please verify every field</strong><p>OCR can be wrong. Check medicine name, strength, dosage, frequency, duration and instructions before continuing.</p></div></div>
+</main>
+<script src="js/api.js"></script>
+<script src="js/app.js"></script>
+<script src="js/auth.js"></script>
+<script src="js/ui-enhance.js"></script>
+<script src="js/prescription.js"></script>
+</body></html>

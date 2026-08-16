@@ -1,0 +1,267 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Login · Mediguide-AI</title>
+
+  <link
+    rel="icon"
+    href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect x='2' y='2' width='28' height='28' rx='9' fill='%230B3D3A'/%3E%3Cpath d='M11 21l5-10 5 10M13 17h6' stroke='%23FFFFFF' stroke-width='1.6' stroke-linecap='round'/%3E%3C/svg%3E"
+  >
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@600;700;800&display=swap"
+    rel="stylesheet"
+  >
+
+  <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body class="auth-page">
+
+  <div class="auth-shell">
+
+    <!-- LEFT SIDE -->
+    <section class="auth-story">
+
+      <a class="brand auth-brand" href="index.html">
+
+        <span class="brand-mark">
+          <svg viewBox="0 0 32 32" fill="none">
+            <rect
+              x="2"
+              y="2"
+              width="28"
+              height="28"
+              rx="9"
+              fill="currentColor"
+            />
+
+            <path
+              d="M11 21l5-10 5 10M13 17h6"
+              stroke="white"
+              stroke-width="1.7"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+          </svg>
+        </span>
+
+        <!-- FIXED BRANDING -->
+        <span>Mediguide-AI</span>
+
+      </a>
+
+
+      <div class="story-content">
+
+        <span class="eyebrow">
+          <i></i>
+          Medicine information, made legible
+        </span>
+
+        <h1>
+          Know what you're taking,
+          in the language you think in.
+        </h1>
+
+        <p>
+          Scan a medicine strip or a doctor's prescription.
+          Mediguide-AI helps you understand medicine information
+          in a clear and patient-friendly way.
+        </p>
+
+        <div class="language-pills">
+          <span>EN · English</span>
+          <span>తె · Telugu</span>
+          <span>हि · Hindi</span>
+        </div>
+
+      </div>
+
+
+      <div class="auth-story-foot">
+        ♥ Built with patient comfort in mind
+      </div>
+
+    </section>
+
+
+    <!-- RIGHT SIDE -->
+    <section class="auth-panel">
+
+      <div class="auth-card reveal">
+
+        <!-- AUTH TABS -->
+        <div class="auth-tabs">
+
+          <button
+            class="auth-tab active"
+            type="button"
+          >
+            Log in
+          </button>
+
+          <a
+            class="auth-tab"
+            href="register.html"
+          >
+            Create account
+          </a>
+
+        </div>
+
+
+        <!-- HEADING -->
+        <div class="auth-heading">
+
+          <span class="mini-icon">
+            ✦
+          </span>
+
+          <h2>
+            Welcome back
+          </h2>
+
+          <p>
+            Sign in to continue your medicine workspace.
+          </p>
+
+        </div>
+
+
+        <!-- LOGIN FORM -->
+        <form onsubmit="login(event)">
+
+          <!-- EMAIL -->
+          <div class="form-group">
+
+            <label for="email">
+              Gmail / Email
+            </label>
+
+            <div class="input-wrap">
+
+              <span>
+                ✉
+              </span>
+
+              <input
+                id="email"
+                type="email"
+                placeholder="you@gmail.com"
+                required
+                autocomplete="email"
+              >
+
+            </div>
+
+          </div>
+
+
+          <!-- PASSWORD -->
+          <div class="form-group">
+
+            <div class="label-row">
+
+              <label for="password">
+                Password
+              </label>
+
+              <a
+                href="#"
+                onclick="showToast('Password reset is available through the configured authentication provider.'); return false;"
+              >
+                Forgot?
+              </a>
+
+            </div>
+
+
+            <div class="input-wrap">
+
+              <span>
+                ⌑
+              </span>
+
+              <input
+                id="password"
+                type="password"
+                placeholder="Enter your password"
+                required
+                autocomplete="current-password"
+              >
+
+              <button
+                type="button"
+                class="password-toggle"
+                aria-label="Show password"
+              >
+                Show
+              </button>
+
+            </div>
+
+          </div>
+
+
+          <!-- LOGIN BUTTON -->
+          <button
+            class="btn btn-primary btn-full btn-lg"
+            type="submit"
+          >
+            Log in
+            <span>→</span>
+          </button>
+
+        </form>
+
+
+        <!-- SECURITY MESSAGE -->
+        <div class="secure-note">
+
+          <span>
+            ✓
+          </span>
+
+          <div>
+
+            <strong>
+              Your care context stays protected
+            </strong>
+
+            <small>
+              Session-based authentication is used by this prototype.
+            </small>
+
+          </div>
+
+        </div>
+
+
+        <p class="demo-note">
+          Hackathon DEMO_MODE supports local demo accounts when configured.
+        </p>
+
+      </div>
+
+    </section>
+
+  </div>
+
+
+  <!-- JAVASCRIPT -->
+  <script src="js/api.js"></script>
+  <script src="js/app.js"></script>
+  <script src="js/auth.js"></script>
+  <script src="js/ui-enhance.js"></script>
+
+</body>
+
+</html>
